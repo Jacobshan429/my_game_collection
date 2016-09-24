@@ -1,0 +1,17 @@
+<h1>Here is my game collection</h1>
+<ul>
+  <% @games.each do |game| %>
+    <li>
+      <%= game.name %>
+      <%= link_to "GameInfo", game_path(game) %>
+      <%= link_to "Edit", edit_game_path(game) %>
+      <%= link_to "Delete", game_path(game), :method => :delete %>
+    </li>
+
+
+  <% end %>
+</ul>
+
+<%= link_to "Add New Game", new_game_path %>
+
+

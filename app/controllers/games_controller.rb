@@ -2,15 +2,20 @@ class GamesController < ApplicationController
   before_action :get_game, :only=> [:show, :edit, :update, :destroy]
   def index
     @games = Game.page(params[:page]).per(5)
+    if params[:game_id]
+      @game = Game.find(params[:game_id])
+    else
+      @game = Game.new
+    end
   end
 
   def show
     @page_title = @game.name
   end
 
-  def new
-    @game = Game.new
-  end
+  # def new
+  #   @game = Game.new
+  # end
 
   def create
     @game = Game.new(game_params)
@@ -19,25 +24,26 @@ class GamesController < ApplicationController
       redirect_to games_path
     else
       flash[:alert] = "Duh"
-      render new_game_path
+      redirect_to games_path
     end
   end
 
-  def edit
-  end
+  # def edit
+  # end
 
   def update
     if @game.update(game_params)
       flash[:notice] = "Game info updated!"
-      redirect_to game_path(@game)
+      redirect_to games_path
     else
       flash[:alert] = "Duhhhh!"
-      render "edit" # :action=> :edit
+      redirect_to games_path
     end
   end
 
   def destroy
     @game.destroy
+    flash[:alert] = "Game DELETED;("
     redirect_to games_path
   end
 

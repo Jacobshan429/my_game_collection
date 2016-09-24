@@ -5,6 +5,7 @@ class GamesController < ApplicationController
   end
 
   def show
+    @page_title = @game.name
   end
 
   def new

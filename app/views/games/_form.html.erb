@@ -1,9 +1,12 @@
 <% if @game.errors.any? %>
-  <% @game.errors.full_messages.each do |msg| %>
-    <%= msg %>
-  <% end %>
+  <ul>
+    <% @game.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
 <% end %>
 
+<%= form_for @game do |f| %>
 <div class="form-group">
   <%= f.label :name, "Name:" %> <br>
   <%= f.text_field :name, :class => "form-control" %> <br>
@@ -18,3 +21,7 @@
   <%= f.label :platform, "What Platform is the game on:" %> <br>
   <%= f.text_field :platform, :class => "form-control" %><br>
 </div>
+
+<%= f.submit :class => "btn btn-warning btn-lg" %>
+
+<% end %>

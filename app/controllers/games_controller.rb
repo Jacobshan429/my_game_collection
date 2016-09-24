@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
   before_action :get_game, :only=> [:show, :edit, :update, :destroy]
   def index
-    @games = Game.all
+    @games = Game.page(params[:page]).per(5)
   end
 
   def show

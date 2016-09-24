@@ -1,11 +1,16 @@
-<h1>Info about the Game</h1>
-<p>Name:</p>
-<%= @game.name %>
+<div class="container">
+  <div class="row">
+    <h1>Info about the Game</h1>
+    <h3>Name:</h3>
+    <div style="font-size:22px"><%= @game.name %></div>
 
-<p>Description:</p>
-<%= @game.description %>
+    <h3>Description:</h3>
+    <div style="font-size:22px"><%= @game.description %></div>
 
-<p>Platform:</p>
-<%= @game.platform %>
-
-<p><%= link_to "Back to index", games_path %></p>
+    <h3>Platform:</h3>
+    <div style="font-size:22px"><%= @game.platform %></div>
+    <br>
+    <br>
+    <p><%= link_to "Back to index", games_path, :class => "btn btn-primary btn-lg" %></p>
+  </div>
+</div>

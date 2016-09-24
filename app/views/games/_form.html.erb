@@ -1,18 +1,20 @@
 <% if @game.errors.any? %>
   <% @game.errors.full_messages.each do |msg| %>
-  <%= msg %>
+    <%= msg %>
   <% end %>
 <% end %>
 
+<div class="form-group">
+  <%= f.label :name, "Name:" %> <br>
+  <%= f.text_field :name, :class => "form-control" %> <br>
+</div>
 
+<div class="form-group">
+    <%= f.label :description, "What is the game about:" %> <br>
+    <%= f.text_area :description, :class => "form-control" %> <br>
+</div>
 
-
-
-<%= f.label :name, "Name:" %> <br>
-<%= f.text_field :name %> <br>
-
-<%= f.label :description, "What is the game about:" %> <br>
-<%= f.text_area :description %> <br>
-
-<%= f.label :platform, "What Platform is the game on:" %> <br>
-<%= f.text_field :platform %><br>
+<div class="form-group">
+  <%= f.label :platform, "What Platform is the game on:" %> <br>
+  <%= f.text_field :platform, :class => "form-control" %><br>
+</div>

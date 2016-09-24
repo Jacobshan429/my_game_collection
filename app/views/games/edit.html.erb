@@ -1,11 +1,11 @@
 <h1>Edit</h1>
 
-<%= form_for @game, :url => game_path(@game), :method => :patch do |f| %>
+  <%= form_for @game, :url => game_path(@game), :method => :patch do |f| %>
 
-  <%= render :partial => "form", :locals => { :f => f } %>
-  <%= f.submit "Update" %>
-
-
+    <%= render :partial => "form", :locals => { :f => f } %>
+    <%= f.submit "Update", :class => "btn btn-warning btn-lg" %>
 
 
-<% end %>
+
+
+  <% end %>

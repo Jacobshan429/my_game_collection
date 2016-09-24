@@ -3,7 +3,7 @@
 <%= form_for @game , :url => games_path, :method => :post do |f| %>
 
   <%= render :partial => "form", :locals => { :f => f } %>
-  <%= f.submit "Add" %>
+  <%= f.submit "Add", :class => "btn btn-warning btn-lg" %>
 
 
 

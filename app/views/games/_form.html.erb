@@ -22,6 +22,16 @@
   <%= f.text_field :platform, :class => "form-control" %><br>
 </div>
 
+<div class="form-group">
+  <%= f.label :release_day, "What date is the game released:" %> <br>
+  <%= f.date_select :release_day, :class => "form-control" %><br>
+</div>
+
+<div class="form-group">
+  <%= f.label :last_play_time, "Last time played:" %> <br>
+  <%= f.datetime_select :last_play_time, :class => "form-control" %><br>
+</div>
+
 <%= f.submit :class => "btn btn-warning btn-lg" %>
 
 <% end %>

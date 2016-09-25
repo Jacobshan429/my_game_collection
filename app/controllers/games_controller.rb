@@ -34,7 +34,7 @@ class GamesController < ApplicationController
   def update
     if @game.update(game_params)
       flash[:notice] = "Game info updated!"
-      redirect_to games_path
+      redirect_to game_path(@game)
     else
       flash[:alert] = "Duhhhh!"
       redirect_to games_path
@@ -56,7 +56,7 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:name, :description, :platform)
+    params.require(:game).permit(:name, :description, :platform, :last_play_time, :release_day)
   end
 
 

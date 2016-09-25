@@ -44,7 +44,7 @@ class GamesController < ApplicationController
   def destroy
     @game.destroy
     flash[:alert] = "Game DELETED;("
-    redirect_to games_path
+    redirect_to games_path(:page => params[:page])
   end
 
 

@@ -2,8 +2,8 @@ class GamesController < ApplicationController
   before_action :get_game, :only=> [:show, :edit, :update, :destroy]
   def index
     @games = Game.page(params[:page]).per(5)
-    if params[:game_id]
-      @game = Game.find(params[:game_id])
+    if params[:id]
+      @game = Game.find(params[:id])
     else
       @game = Game.new
     end
@@ -19,12 +19,13 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
+    @games = Game.page(params[:page]).per(5)
     if @game.save
       flash[:notice] = "Yay!Time to play!"
       redirect_to games_path
     else
       flash[:alert] = "Duh"
-      redirect_to games_path
+      render :action => :index
     end
   end
 
@@ -32,12 +33,13 @@ class GamesController < ApplicationController
   # end
 
   def update
+    @games = Game.page(params[:page]).per(5)
     if @game.update(game_params)
       flash[:notice] = "Game info updated!"
       redirect_to game_path(@game)
     else
       flash[:alert] = "Duhhhh!"
-      redirect_to games_path
+      render "index"
     end
   end
 

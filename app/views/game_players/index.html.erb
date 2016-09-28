@@ -1,0 +1,21 @@
+<h1><%= @game.name %>: Players List</h1>
+<ul>
+<% @players.each do |player| %>
+  <li>
+    <%= player.name %>
+
+    <%= link_to "show", game_player_path(@game, player) %>
+    <%= link_to "edit", edit_game_player_path(@game, player) %>
+    <%= link_to "delete", game_player_path(@game, player), :method => :delete, :data => { :confirm => "ARE U SURE?"} %>
+
+  </li>
+
+
+<% end %>
+</ul>
+
+<%= link_to "New Player", new_game_player_path(@game) %>
+
+<br>
+<br>
+<%= link_to "Back to index", games_path %>

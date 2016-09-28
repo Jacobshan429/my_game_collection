@@ -12,6 +12,7 @@
     <tr>
       <td style="font-size:20px; color: #999"><%= game.name %></td>
       <td><%= link_to "GameInfo", game_path(game), :class => "btn btn-default m-r-2" %>
+          <%= link_to "Player List", game_players_path(game), :class => "btn btn-primary" %>
           <%= link_to "Edit", games_path(:id => game), :class => "btn btn-warning btn-md" %>
       </td>
       <td><%= link_to "Delete", game_path(game, :page => @games.current_page), :method => :delete, :class => "btn btn-danger" %>

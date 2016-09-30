@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928123038) do
+ActiveRecord::Schema.define(version: 20160930021034) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "game_platformships", force: :cascade do |t|
+    t.integer  "game_id"
+    t.integer  "platform_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["game_id"], name: "index_game_platformships_on_game_id"
+    t.index ["platform_id"], name: "index_game_platformships_on_platform_id"
+  end
 
   create_table "games", force: :cascade do |t|
     t.string   "name"
@@ -20,6 +35,14 @@ ActiveRecord::Schema.define(version: 20160928123038) do
     t.datetime "updated_at",     null: false
     t.datetime "last_play_time"
     t.date     "release_day"
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_games_on_category_id"
+  end
+
+  create_table "platforms", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "players", force: :cascade do |t|

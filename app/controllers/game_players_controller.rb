@@ -26,7 +26,7 @@ class GamePlayersController < ApplicationController
   end
 
   def update
-    @player = @game.players.find(params[:id])
+    @player = @game.players.find(params[:edit_comment])
     if @player.update(params_player)
       redirect_to game_players_path(@game)
     else
